@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 10:23:14 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/03 13:46:42 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/11/03 13:05:59 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/11/03 13:46:53 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *str, ...)
+int printp(void *pointer)
 {
-	int		i;
-	int		count;
-	va_list	argptr;
+	char *adress;
+	int i;
+	int count;
 
 	i = 0;
 	count = 0;
-	va_start(argptr, str);
-	while (str[i] != '\0')
+	adress = &pointer;
+	while (adress[i] != '/0')
 	{
-		if (str[i] == '%')
-			ft_selector(str[i++], argptr);
-		else
-		{
-			write(1, &str[i], 1);			
-			count++;
-		}
-		i++;
+		write(1, adress[i], 1);
+		count++;
 	}
 	return (count);
+}
+
+int main()
+{
+	void *p = NULL;
+	printp(p);
 }

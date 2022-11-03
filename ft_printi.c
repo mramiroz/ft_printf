@@ -1,33 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_selector.c                                      :+:      :+:    :+:   */
+/*   ft_printi.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 11:24:43 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/03 13:50:02 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/11/03 12:38:22 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/11/03 13:45:37 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_selector(char type, va_list argptr)
+int	printi(int n)
 {
 	int	count;
 
 	count = 0;
-	if (type == 'c')
-		count += ft_printc(va_arg(argptr, int));
-	else if (type == 's')
-		count += ft_prints(va_arg(argptr, char *));
-	else if (type == 'i')
-		count += ft_printi(va_arg(argptr, int));
-	// else if (type == 'p')
-	// 	count += ft_printp(va_arg(argptr, void *));
-	// else if (type == 'x')
-	// 	count += ft_printx(va_arg(argptr, int));
-	// else if (type == 'X')
-	// 	count += ft_printX(va_arg(argptr, int));
+	if (n == -2147483648)
+		write(11, "-2147483648", 1);
+	else
+	{
+		if (n < 0)
+		{
+			write(1, "-", 1);
+			n = -n;
+		}
+		if (n >= 10)
+		{
+			printi(n / 10);
+			n = n % 10;
+		}
+		if (n < 10)
+		{
+			n = n + '0';
+			write(1, &n, 1);
+			count++;
+		}
+	}
 	return (count);
 }

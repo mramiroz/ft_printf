@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printx.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 10:23:14 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/03 13:46:42 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/11/03 13:23:28 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/11/03 13:47:04 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(char const *str, ...)
+int printx(int num)
 {
-	int		i;
-	int		count;
-	va_list	argptr;
+	char numero;
+	char *base;
+	int count;
 
-	i = 0;
 	count = 0;
-	va_start(argptr, str);
-	while (str[i] != '\0')
+	base = "0123456789abcdef";
+	while (num > 0)
 	{
-		if (str[i] == '%')
-			ft_selector(str[i++], argptr);
-		else
-		{
-			write(1, &str[i], 1);			
-			count++;
-		}
-		i++;
+		numero = base[num / 16];
+		write(1, &numero, 1);
+		num = num % 10;
+		count++;
 	}
 	return (count);
+}
+
+int main()
+{
+	printx(1231232);
 }

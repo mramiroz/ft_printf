@@ -6,11 +6,11 @@
 /*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:34:37 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/03 11:37:02 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/11/03 13:46:58 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_prints(char *str)
 {
