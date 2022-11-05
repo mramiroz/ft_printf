@@ -1,45 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_di.c                                            :+:      :+:    :+:   */
+/*   ft_print_xX.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 12:38:22 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/04 20:33:07 by mrarmiro-        ###   ########.fr       */
+/*   Created: 2022/11/03 13:23:28 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/11/05 13:25:48 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putnbr(int n, int count)
+int	ft_putnbrhexa(unsigned int n, int count, char *base)
 {	
-	int num;
+	int 	num;
 
 	count = 0;
-	if (n == -2147483648)
-		count += write(1, "-2147483648", 11);
-	else
-	{
-		if (n < 0)
-		{
-			count += write(1, "-", 1);
-			n *= -1;
-		}
-		if (n > 9)
-			count += ft_putnbr(n / 10, count);
-		num = (n % 10) + '0';
-		count += write(1, &num, 1);
-	}
+	if (n >= 16)
+		count += ft_putnbrhexa(n / 16, count, base);
+	num = base[n % 16];
+	count += write(1, &num, 1);
 	return (count);
 }
 
-int ft_di(va_list arg)
+int	ft_print_xX(va_list arg, char *base)
 {
-	int	num;
-	int	count;
+	int		count;
+	unsigned int		num;
 
-	num = va_arg(arg, int);
-	count = ft_putnbr(num, 0);
+	count = 0;
+	num = va_arg(arg, unsigned int);
+	count += ft_putnbrhexa(num, 0, base);
 	return (count);
 }

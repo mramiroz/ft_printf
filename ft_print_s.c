@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printx.c                                        :+:      :+:    :+:   */
+/*   ft_print_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 13:23:28 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/03 13:47:04 by mramiro-         ###   ########.fr       */
+/*   Created: 2022/11/03 11:34:37 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/11/05 12:55:21 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int printx(int num)
+int	ft_print_s(va_list arg)
 {
-	char numero;
-	char *base;
-	int count;
+	int		i;
+	char	*str;
+	int		count;
 
+	str = va_arg(arg, char *);
+	i = 0;
 	count = 0;
-	base = "0123456789abcdef";
-	while (num > 0)
+	if (!str)
 	{
-		numero = base[num / 16];
-		write(1, &numero, 1);
-		num = num % 10;
-		count++;
+		count += write(1, "(null)", 6);
+		return (count);
+	}
+	while (str[i] != '\0')
+	{
+		count += write(1, &str[i], 1);
+		i++;
 	}
 	return (count);
-}
-
-int main()
-{
-	printx(1231232);
 }

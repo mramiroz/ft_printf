@@ -1,35 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_s.c                                             :+:      :+:    :+:   */
+/*   ft_print_di.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 11:34:37 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/04 16:34:53 by mrarmiro-        ###   ########.fr       */
+/*   Created: 2022/11/03 12:38:22 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/11/05 12:55:08 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_s(va_list arg)
-{
-	int		i;
-	char	*str;
-	int		count;
+int	ft_putnbr(int n, int count)
+{	
+	int num;
 
-	str = va_arg(arg, char *);
-	i = 0;
 	count = 0;
-	if (!str)
+	if (n == -2147483648)
+		count += write(1, "-2147483648", 11);
+	else
 	{
-		count += write(1, "(null)", 6);
-		return (count);
+		if (n < 0)
+		{
+			count += write(1, "-", 1);
+			n *= -1;
+		}
+		if (n > 9)
+			count += ft_putnbr(n / 10, count);
+		num = (n % 10) + '0';
+		count += write(1, &num, 1);
 	}
-	while (str[i] != '\0')
-	{
-		count += write(1, &str[i], 1);
-		i++;
-	}
+	return (count);
+}
+
+int ft_print_di(va_list arg)
+{
+	int	num;
+	int	count;
+
+	num = va_arg(arg, int);
+	count = ft_putnbr(num, 0);
 	return (count);
 }

@@ -24,7 +24,7 @@ int	ft_putnbru(unsigned int n, int count)
 	return (count);
 }
 
-int	ft_u(va_list arg)
+int	ft_print_u(va_list arg)
 {
 	unsigned int num;
 	int count;

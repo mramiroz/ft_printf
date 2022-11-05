@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_selector.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 11:24:43 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/03 13:50:02 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:37:35 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,20 @@ int	ft_selector(char type, va_list argptr)
 
 	count = 0;
 	if (type == 'c')
-		count += ft_printc(va_arg(argptr, int));
+		count += ft_print_c(argptr);
 	else if (type == 's')
-		count += ft_prints(va_arg(argptr, char *));
-	else if (type == 'i')
-		count += ft_printi(va_arg(argptr, int));
-	// else if (type == 'p')
-	// 	count += ft_printp(va_arg(argptr, void *));
-	// else if (type == 'x')
-	// 	count += ft_printx(va_arg(argptr, int));
-	// else if (type == 'X')
-	// 	count += ft_printX(va_arg(argptr, int));
+		count += ft_print_s(argptr);
+	else if (type == 'i' || type == 'd')
+		count += ft_print_di(argptr);
+	else if (type == 'u')
+		count += ft_print_u(argptr);
+	else if (type == 'p')
+	 	count += ft_print_p(argptr);
+	else if (type == 'x')
+		count += ft_print_xX(argptr, "0123456789abcdef");
+	else if (type == 'X')
+		count += ft_print_xX(argptr, "0123456789ABCDEF");
+	else if (type == '%')
+		count += write(1, "%", 1);
 	return (count);
 }

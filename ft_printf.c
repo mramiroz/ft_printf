@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
+/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:23:14 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/03 13:46:42 by mramiro-         ###   ########.fr       */
+/*   Updated: 2022/11/05 15:50:09 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,22 @@ int	ft_printf(char const *str, ...)
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%')
-			ft_selector(str[i++], argptr);
-		else
 		{
-			write(1, &str[i], 1);			
-			count++;
+			if (str[i + 1] == '\0')
+				return (-1);
+			if (ft_strchr("cspdiuxX %", str[i + 1]) == 0)
+			{
+				count += write(1, "%", 1);
+				count++;
+				break;
+			}
+			count += ft_selector(str[++i], argptr);
+
 		}
-		i++;
+		else
+			count += write(1, &str[i], 1);
+		if (str[i] != '\0')
+			i++;
 	}
 	return (count);
 }
