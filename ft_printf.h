@@ -6,7 +6,7 @@
 /*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 10:55:00 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/05 13:35:48 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/11/05 15:53:04 by mrarmiro-        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int     ft_print_p(va_list arg);
 int     ft_print_s(va_list arg);
 int     ft_print_u(va_list arg);
 int     ft_print_xX(va_list arg, char *base);
-int     ft_putstr(char str);
 char	*ft_strchr(const char *str, int ch);
 
 # endif
