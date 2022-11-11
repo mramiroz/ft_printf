@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_di.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
+/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 12:38:22 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/05 12:55:08 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/11/08 10:17:43 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putnbr(int n, int count)
 {	
-	int num;
+	int	num;
 
 	count = 0;
 	if (n == -2147483648)
@@ -34,7 +34,7 @@ int	ft_putnbr(int n, int count)
 	return (count);
 }
 
-int ft_print_di(va_list arg)
+int	ft_print_di(va_list arg)
 {
 	int	num;
 	int	count;

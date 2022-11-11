@@ -3,31 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
+/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/03 10:55:00 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/05 15:53:04 by mrarmiro-        ###   ########.fr       */
+/*   Created: 2022/11/08 10:32:32 by mramiro-          #+#    #+#             */
+/*   Updated: 2022/11/08 10:43:58 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef	LIBFTPRINTF_H_
+#ifndef FT_PRINTF_H
 
-# define	LIBFTPRINTF_H_
+# define FT_PRINTF_H
+# include <unistd.h>
+# include <stdarg.h>
 
-#include <unistd.h>
-#include <stdarg.h>
-
-int	ft_printf(char const *str, ...);
-
-// Print diferent types
-
+//Print function and type selector
+int		ft_printf(char const *str, ...);
 int		ft_selector(char type, va_list argptr);
-int     ft_print_c(va_list arg);
-int     ft_print_di(va_list arg);
-int     ft_print_p(va_list arg);
-int     ft_print_s(va_list arg);
-int     ft_print_u(va_list arg);
-int     ft_print_xX(va_list arg, char *base);
+//Print different types of data
+int		ft_print_c(va_list arg);
+int		ft_print_di(va_list arg);
+int		ft_print_p(va_list arg);
+int		ft_print_s(va_list arg);
+int		ft_print_u(va_list arg);
+int		ft_print_xx(va_list arg, char *base);
 char	*ft_strchr(const char *str, int ch);
 
-# endif
+#endif

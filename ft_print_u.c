@@ -14,7 +14,7 @@
 
 int	ft_putnbru(unsigned int n, int count)
 {	
-	int num;
+	int	num;
 
 	count = 0;
 	if (n > 9)
@@ -26,8 +26,8 @@ int	ft_putnbru(unsigned int n, int count)
 
 int	ft_print_u(va_list arg)
 {
-	unsigned int num;
-	int count;
+	unsigned int	num;
+	int				count;
 
 	count = 0;
 	num = va_arg(arg, unsigned int);

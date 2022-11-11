@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_print_xX.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrarmiro- <mramiro-@student.42madrid.co    +#+  +:+       +#+        */
+/*   By: mramiro- <mramiro-@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:23:28 by mramiro-          #+#    #+#             */
-/*   Updated: 2022/11/05 13:25:48 by mrarmiro-        ###   ########.fr       */
+/*   Updated: 2022/11/08 10:36:33 by mramiro-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	ft_putnbrhexa(unsigned int n, int count, char *base)
 {	
-	int 	num;
+	int	num;
 
 	count = 0;
 	if (n >= 16)
@@ -24,9 +24,9 @@ int	ft_putnbrhexa(unsigned int n, int count, char *base)
 	return (count);
 }
 
-int	ft_print_xX(va_list arg, char *base)
+int	ft_print_xx(va_list arg, char *base)
 {
-	int		count;
+	int					count;
 	unsigned int		num;
 
 	count = 0;
